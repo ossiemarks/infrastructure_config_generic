@@ -1,0 +1,27 @@
+# Copy this file to local.auto.pkrvars.hcl (gitignored) and fill in real
+# values once your Proxmox VE host is up.
+#
+#   cp pkrvars.hcl.example local.auto.pkrvars.hcl
+#
+# Generate a dedicated build keypair (used only during the build, removed
+# again by scripts/cleanup.sh):
+#   ssh-keygen -t ed25519 -f ~/.ssh/packer_lubuntu_ed25519 -N ''
+#
+# Generate the desktop login's password hash (never put a plaintext
+# password in this file). macOS's built-in `openssl` is LibreSSL and does
+# NOT support -6 - use the real OpenSSL Homebrew already installed as a
+# dependency:
+#   $(brew --prefix openssl@3)/bin/openssl passwd -6 'your password here'
+
+proxmox_url          = "https://proxmox.example.com:8006/api2/json"
+proxmox_username     = "packer@pve!packer"
+proxmox_token        = "REPLACE_WITH_API_TOKEN_SECRET"
+proxmox_node         = "pve"
+proxmox_storage_pool = "local-lvm"
+proxmox_vm_pool      = ""
+
+vm_id         = 9020
+build_version = "1.0.0"
+
+local_username = "lubuntu"
+# local_password_hash = "$6$......."   # from `openssl passwd -6`, store the plaintext in LastPass too

@@ -1,0 +1,14 @@
+# Copy this file to local.auto.tfvars (gitignored) and fill in real values
+# once your Proxmox VE host is up.
+#
+#   cp tfvars.example local.auto.tfvars
+
+proxmox_endpoint      = "https://proxmox.example.com:8006/"
+proxmox_ssh_username  = "root"
+
+node_name      = "pve"
+template_vm_id = 9000
+vm_id          = 9100
+vm_name        = "win11-test"
+
+# proxmox_api_token = "set via TF_VAR_proxmox_api_token instead"

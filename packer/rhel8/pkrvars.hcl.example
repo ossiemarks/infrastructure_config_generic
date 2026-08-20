@@ -1,0 +1,23 @@
+# Copy this file to local.auto.pkrvars.hcl (gitignored) and fill in real
+# values once your Proxmox VE host is up.
+#
+#   cp pkrvars.hcl.example local.auto.pkrvars.hcl
+#
+# Also generate a dedicated build keypair first (used only during the
+# build, removed again by scripts/cleanup.sh):
+#   ssh-keygen -t ed25519 -f ~/.ssh/packer_rhel8_ed25519 -N ''
+
+proxmox_url           = "https://proxmox.example.com:8006/api2/json"
+proxmox_username      = "packer@pve!packer"
+proxmox_token         = "REPLACE_WITH_API_TOKEN_SECRET"
+proxmox_node          = "pve"
+proxmox_storage_pool  = "local-lvm"
+proxmox_vm_pool       = ""
+
+vm_id         = 9010
+build_version = "1.0.0"
+
+# Download from the Red Hat Customer Portal (a free Developer Subscription
+# covers this) and upload to Proxmox ISO storage yourself - no stable
+# public download URL exists for RHEL.
+rhel_iso_file = "local:iso/rhel-8.10-x86_64-dvd.iso"

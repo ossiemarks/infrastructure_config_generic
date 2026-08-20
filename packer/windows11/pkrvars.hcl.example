@@ -1,0 +1,24 @@
+# Copy this file to local.auto.pkrvars.hcl (gitignored) and fill in real
+# values once your Proxmox VE host is up. Never commit the copy.
+#
+#   cp pkrvars.hcl.example local.auto.pkrvars.hcl
+#
+# admin_password can instead be supplied via env var, which avoids writing
+# it to disk at all:
+#   export PKR_VAR_admin_password="$(openssl rand -base64 24)"
+
+proxmox_url              = "https://proxmox.example.com:8006/api2/json"
+proxmox_username         = "packer@pve!packer"
+proxmox_token            = "REPLACE_WITH_API_TOKEN_SECRET"
+proxmox_node             = "pve"
+proxmox_storage_pool     = "local-lvm"
+proxmox_iso_storage_pool = "local"
+proxmox_vm_pool          = ""
+
+vm_id         = 9000
+build_version = "1.0.0"
+
+windows_iso_file = "local:iso/Win11_25H2_English_x64.iso"
+virtio_iso_file  = "local:iso/virtio-win.iso"
+
+# admin_password = "set via PKR_VAR_admin_password instead"

@@ -1,0 +1,27 @@
+# Secrets / local overrides — never commit these
+*.auto.pkrvars.hcl
+*.auto.tfvars
+local.auto.pkrvars.hcl
+local.auto.tfvars
+*.pkrvars.hcl
+!pkrvars.hcl.example
+*.tfvars
+!tfvars.example
+
+# Packer
+packer/**/packer_cache/
+packer/**/*.log
+crash.log
+
+# OpenTofu / Terraform
+# (commit .terraform.lock.hcl — it pins provider versions for reproducibility)
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+
+# OS cruft
+.DS_Store
+
+# Claude Code session state (not project content)
+.claude/
